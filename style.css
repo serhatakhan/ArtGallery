@@ -1,0 +1,393 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    list-style: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.gallery-container{
+    text-align: center;
+    background-color: #000;
+    width: 100%;
+    height: 100vh;
+    padding: 30px 10px;
+    position: relative;
+    overflow-x: hidden;
+    cursor: pointer;
+    /*aşağıdaki flex özellikleri önemli*/
+    flex-grow: 1;
+    flex-basis: 0; 
+    /*bu iki değer yerine "flex:1" yazsaydık da olurdu. 
+    flex: 1; ifadesi flex-grow, flex-shrink ve flex-basis değerlerini tek bir ifadede belirlemek için kullanılır. 
+    -flex-grow: 1 (Varsayılan değer)
+    -flex-shrink: 1 (Varsayılan değer)
+    -flex-basis: 0 (Varsayılan değer),
+    flex-grow değeri 1 olacak, yani diğer öğelerle aynı oranda büyüyebilecek,
+    flex-shrink değeri 1 olacak, yani diğer öğelerle aynı oranda küçülebilecek,
+    flex-basis değeri 0 olacak, yani başlangıç boyutu sıfır olacak şekilde ayarlanacaktır.
+    varsayılan başlangıç ve büyüme değerlerini belirtmemiz, daha sonra flex-grow ile büyütmemiz için yeterli oldu.*/
+    transition: all .5s ease;
+}
+
+.gallery-container:hover{
+    flex-grow: 5;
+    /* normal boyutundan daha fazla büyümesini sağladık */
+}
+
+.gallery-container:hover h1{
+    transform: rotate(0deg);
+    transition: all .5s ease;
+}
+
+.gallery-container-title{
+    margin: auto auto;
+}
+
+.gallery-container h1{
+    color: #fff;
+    margin: 50px;
+    font-weight: 200;
+    font-size: 6vmin;
+    transform: rotate(90deg);
+    letter-spacing: 7px;
+}
+
+.gallery-container p {
+    font-size: 3vmin;
+    text-align: justify;
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.gallery-container:hover p {
+    display: block;
+}
+
+
+/****** home *****/
+
+.home{
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(img/home.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+
+.home p{
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 45px 50px;
+    border-radius: 5px;
+}
+
+.home p::first-letter{
+    font-size: 5vmin;
+}
+
+
+/***** gallery *****/
+
+.gallery{
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(img/gallery.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+
+.gallery-image{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.gallery-image img{
+    border-radius: 5px;
+    width: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    filter: sepia(30%) grayscale(20%) contrast(80%) brightness(90%);
+    transition: all .4s ease;
+}
+
+.gallery-image img:hover{
+    filter: none;
+}
+
+
+.gallery:hover .gallery-image img{
+    display: block;
+}
+
+
+.fa-solid{
+    color: #fff;
+    font-size: 7vmin;
+    opacity: .5;
+    transition: all .3s ease;
+    display: none;
+    padding: 0 10px;
+}
+
+.fa-solid:hover{
+    opacity: 1;
+}
+
+.gallery:hover .fa-solid{
+    display: block;
+}
+
+
+/***** artists *****/
+
+.artists{
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(img/artists.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+
+.artists p{
+    color: #fff;
+    padding: 45px 50px;
+    border-radius: 5px;
+}
+
+.artists-image img,
+.artists-image h6{
+    display: none;
+    border-radius: 10px;
+}
+
+.artists:hover .artists-image img{
+    display: block;
+}
+
+.artists:hover .artists-image h6{
+    display: block;
+}
+
+.artists-image {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.artists-image-item {
+    width: 100%; /* Resimlerin tam genişlikte olmasını sağlar */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+}
+
+.artists-image-item img {
+    width: 50%; /* Resimlerin yatayda daha dar görünmesini sağlar */
+    filter: sepia(30%) grayscale(20%) contrast(80%) brightness(90%);
+    transition: all .4s ease;
+}
+
+.artists-image-item img:hover {
+    filter: none;
+}
+
+.artists-image h6 {
+    color: #fff;
+    font-size: 2vmin;
+}
+
+.artists-image h6:hover {
+    text-decoration: underline;
+}
+
+.readMore{
+    opacity: .5;
+    transition: .3s ease;
+}
+
+.readMore:hover{
+    opacity: 1;
+}
+
+
+/***** events *****/
+
+.events{
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(img/events.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+
+.events-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; /* Değişiklik burada */
+    gap: 50px;
+    width: 100%;
+}
+
+.events-item .events-links{
+    color: #fff;
+    display: none;
+}
+
+.events:hover .events-item .events-links{
+    display: block;
+}
+
+.events-item .events-links h3 {
+    font-size: 3vmin;
+    margin-right: auto;
+}
+
+.events-item .events-links span {
+    margin-left: auto;
+}
+
+
+/***** about *****/
+
+.about{
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(img/about.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+
+.about-p{
+    font-size: 2vmin;
+    margin-top: 20px;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 45px 50px;
+    border-radius: 5px;
+}
+
+.about-p::first-letter{
+    font-size: 5vmin;
+}
+
+
+/***** contact *****/
+
+.contact{
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(img/contact.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+
+.form-group{
+    margin-top: 80px;
+}
+
+.form-group form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.contact .form-group .form-item{
+    display: none;
+}
+
+.contact:hover .form-item{
+    display: block;
+}
+
+.contact .form-group form input{
+    width: 80%;
+    padding: 10px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    background-color: #b49995;
+    border: none;
+    resize: none;
+}
+
+.contact .form-group form input::placeholder{
+    color: #ece4e2;
+}
+
+.contact .form-group form .sub{
+    background-color: #66423c;
+    border: 1px solid transparent;
+    color: #fff;
+    cursor: pointer;
+    transition: all .4s ease
+}
+
+.contact .form-group form .sub:hover{
+    border: 1px solid #fff;
+    background-color: transparent;
+}
+
+
+/* media queries */
+@media (max-width:860px){
+    .main{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .gallery-container{
+        padding: 0 0;
+        overflow-y: hidden;
+    }
+
+    .gallery-container h1{
+        transform: rotate(0deg);
+        margin-top: 0;
+    }
+
+    .home p{
+        padding: 30px 40px;
+    }
+
+    .artists-image-item img{
+        width: 35%;
+    }
+
+    .events-item{
+        gap: 30px;
+    }
+
+    .events-item .events-links h3 {
+        font-size: 3vmin;
+    }
+
+    .about-p{
+        padding: 30px 40px;
+    }
+
+    .form-group{
+        margin-top: 40px;
+    }
+
+    .contact .form-group form input{
+        margin-bottom: 2px;
+    }
+}
